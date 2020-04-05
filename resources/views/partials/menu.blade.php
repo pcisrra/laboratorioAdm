@@ -20,16 +20,6 @@
                     </a>
                 </li>
             @endcan
-            @can('plan_compra_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.plan-compras.index") }}" class="nav-link {{ request()->is('admin/plan-compras') || request()->is('admin/plan-compras/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-money-bill nav-icon">
-
-                        </i>
-                        {{ trans('cruds.planCompra.title') }}
-                    </a>
-                </li>
-            @endcan
             @can('ingreso_materiale_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.ingreso-materiales.create") }}" class="nav-link {{ request()->is('admin/ingreso-materiales') || request()->is('admin/ingreso-materiales/*') ? 'active' : '' }}">
