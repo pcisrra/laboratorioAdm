@@ -10,6 +10,7 @@ use App\Http\Requests\StoreDisenoAsistidoRequest;
 use App\Http\Requests\UpdateDisenoAsistidoRequest;
 use App\User;
 use Gate;
+use DB;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -38,6 +39,10 @@ class DisenoAsistidoController extends Controller
     public function store(StoreDisenoAsistidoRequest $request)
     {
         $disenoAsistido = DisenoAsistido::create($request->all());
+        DB::select('CALL registerDA(?,?)',array(
+            $request->input('nombre_cliente_id'),
+            $request->input('descripcion')
+        ));
 
         return redirect()->route('admin.diseno-asistidos.index');
     }

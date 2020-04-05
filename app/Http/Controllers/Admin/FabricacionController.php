@@ -12,6 +12,7 @@ use App\Maquina;
 use App\Materiale;
 use App\User;
 use Gate;
+use DB;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -46,6 +47,10 @@ class FabricacionController extends Controller
         $fabricacion = Fabricacion::create($request->all());
         $fabricacion->maquina_asignadas()->sync($request->input('maquina_asignadas', []));
         $fabricacion->material_asignados()->sync($request->input('material_asignados', []));
+        DB::select('CALL registerFab(?,?)',array(
+            $request->input('beneficiario_id'),
+            $request->input('proyecto_nombre'))
+        );
 
         return redirect()->route('admin.fabricacions.index');
 

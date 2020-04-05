@@ -10,6 +10,7 @@ use App\Http\Requests\StoreCapacitacionRequest;
 use App\Http\Requests\UpdateCapacitacionRequest;
 use App\User;
 use Gate;
+use DB;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -39,8 +40,11 @@ class CapacitacionController extends Controller
     {
         $capacitacion = Capacitacion::create($request->all());
         $capacitacion->asistentes()->sync($request->input('asistentes', []));
+        DB::select('CALL generateList()');
+        DB::select('CALL createReport()');
+        app('App\Http\Controllers\AssistanceController')->createList();
+        return view('home');
 
-        return redirect()->route('admin.capacitacions.index');
     }
 
     public function edit(Capacitacion $capacitacion)

@@ -85,4 +85,16 @@ class MaterialesController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
 
     }
+
+    public static function enterMat($codigo_material, $cantidad){
+        DB::select("UPDATE materiales SET cantidad = cantidad + ? WHERE codigo = ?", [$cantidad, $codigo_material]);
+        DB::select("DELETE FROM ingreso_materiales ORDER BY id DESC LIMIT 1");
+        return back();
+    }
+
+    public static function exitMat($codigo_material, $cantidad){
+        DB::select("UPDATE materiales SET cantidad  = cantidad - ? WHERE codigo = ?", [$cantidad, $codigo_material]);
+        DB::select("DELETE FROM solicitudes ORDER BY id DESC LIMIT 1");
+        return back();
+    }
 }
