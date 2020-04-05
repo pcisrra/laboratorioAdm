@@ -89,7 +89,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
-                    Registrar Ingreso
+                    Registrar
                 </button>
             </div>
         </form>

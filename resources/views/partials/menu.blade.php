@@ -22,7 +22,7 @@
             @endcan
             @can('ingreso_materiale_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.ingreso-materiales.create") }}" class="nav-link {{ request()->is('admin/ingreso-materiales') || request()->is('admin/ingreso-materiales/*') ? 'active' : '' }}">
+                    <a href="{{ route("admin.ingreso-materiales.index") }}" class="nav-link {{ request()->is('admin/ingreso-materiales') || request()->is('admin/ingreso-materiales/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-sign-in-alt nav-icon">
 
                         </i>
@@ -133,7 +133,7 @@
                         @endcan
                         @can('capacitacion_access')
                             <li class="nav-item">
-                                <a href="{{ route("admin.capacitacions.index") }}" class="nav-link {{ request()->is('admin/capacitacions') || request()->is('admin/capacitacions/*') ? 'active' : '' }}">
+                                <a href="{{ route("admin.capacitacions.create") }}" class="nav-link {{ request()->is('admin/capacitacions') || request()->is('admin/capacitacions/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-chalkboard-teacher nav-icon">
 
                                     </i>
@@ -164,6 +164,12 @@
                     </a>
                 </li>
             @endcan
+            <li class="nav-item">
+                <a href="{{ action('ReportsController@index') }}" class="nav-link">
+                    <i class="fa fa-file-text nav-icon"></i>
+                    Generar Reportes
+                </a>
+            </li>
             @can('user_management_access')
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link  nav-dropdown-toggle" href="#">

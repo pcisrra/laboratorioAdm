@@ -76,23 +76,15 @@
                                 {{ $ingresoMateriale->fecha_ingreso ?? '' }}
                             </td>
                             <td>
-                                @can('ingreso_materiale_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.ingreso-materiales.show', $ingresoMateriale->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
-
-                                @can('ingreso_materiale_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.ingreso-materiales.edit', $ingresoMateriale->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
-
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.materials.enterMat',['codigo_material' => $ingresoMateriale->codigo_material->codigo, 'cantidad' => $ingresoMateriale->cantidad]) }}">
+                                    REGISTRAR INGRESO
+                                </a>
+                                <br/>
                                 @can('ingreso_materiale_delete')
                                     <form action="{{ route('admin.ingreso-materiales.destroy', $ingresoMateriale->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                        <input type="submit" class="btn btn-xs btn-danger" value="ELIMINAR">
                                     </form>
                                 @endcan
 

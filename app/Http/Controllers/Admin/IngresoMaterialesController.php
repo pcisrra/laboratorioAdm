@@ -41,7 +41,7 @@ class IngresoMaterialesController extends Controller
         $ingresoMateriale = IngresoMateriale::create($request->all());
         DB::select("CALL updateFechaSalida()");
 
-        return view('/home');
+        return redirect()->route('admin.ingresoMateriales.index');
     }
 
     public function edit(IngresoMateriale $ingresoMateriale)

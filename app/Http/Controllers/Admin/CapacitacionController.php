@@ -43,7 +43,7 @@ class CapacitacionController extends Controller
         DB::select('CALL generateList()');
         DB::select('CALL createReport()');
         app('App\Http\Controllers\AssistanceController')->createList();
-        return view('home');
+        return view('/home');
 
     }
 
