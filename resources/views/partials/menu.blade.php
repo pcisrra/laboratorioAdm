@@ -16,7 +16,7 @@
                         <i class="fa-fw fas fa-bell nav-icon">
 
                         </i>
-                        {{ trans('cruds.solicitude.title') }}
+                        Salida de Material
                     </a>
                 </li>
             @endcan
@@ -32,7 +32,7 @@
             @endcan
             @can('ingreso_materiale_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.ingreso-materiales.index") }}" class="nav-link {{ request()->is('admin/ingreso-materiales') || request()->is('admin/ingreso-materiales/*') ? 'active' : '' }}">
+                    <a href="{{ route("admin.ingreso-materiales.create") }}" class="nav-link {{ request()->is('admin/ingreso-materiales') || request()->is('admin/ingreso-materiales/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-sign-in-alt nav-icon">
 
                         </i>

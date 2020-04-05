@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.solicitude.title_singular') }}
+        Salida de Material
     </div>
 
     <div class="card-body">

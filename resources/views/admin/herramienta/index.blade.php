@@ -11,7 +11,7 @@
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.herramientum.title_singular') }} {{ trans('global.list') }}
+        LISTADO
     </div>
 
     <div class="card-body">
@@ -21,9 +21,6 @@
                     <tr>
                         <th width="10">
 
-                        </th>
-                        <th>
-                            {{ trans('cruds.herramientum.fields.id') }}
                         </th>
                         <th>
                             {{ trans('cruds.herramientum.fields.codigo') }}
@@ -50,9 +47,6 @@
                         <tr data-entry-id="{{ $herramientum->id }}">
                             <td>
 
-                            </td>
-                            <td>
-                                {{ $herramientum->id ?? '' }}
                             </td>
                             <td>
                                 {{ $herramientum->codigo ?? '' }}

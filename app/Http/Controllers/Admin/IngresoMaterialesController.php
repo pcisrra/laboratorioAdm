@@ -10,6 +10,7 @@ use App\IngresoMateriale;
 use App\Materiale;
 use App\User;
 use Gate;
+use DB;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -38,8 +39,9 @@ class IngresoMaterialesController extends Controller
     public function store(StoreIngresoMaterialeRequest $request)
     {
         $ingresoMateriale = IngresoMateriale::create($request->all());
+        DB::select("CALL updateFechaSalida()");
 
-        return redirect()->route('admin.ingreso-materiales.index');
+        return view('/home');
     }
 
     public function edit(IngresoMateriale $ingresoMateriale)

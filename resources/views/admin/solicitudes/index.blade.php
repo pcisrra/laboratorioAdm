@@ -11,7 +11,7 @@
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.solicitude.title_singular') }} {{ trans('global.list') }}
+        LISTADO
     </div>
 
     <div class="card-body">
@@ -21,9 +21,6 @@
                     <tr>
                         <th width="10">
 
-                        </th>
-                        <th>
-                            {{ trans('cruds.solicitude.fields.id') }}
                         </th>
                         <th>
                             {{ trans('cruds.solicitude.fields.codigo_material') }}
@@ -61,9 +58,6 @@
 
                             </td>
                             <td>
-                                {{ $solicitude->id ?? '' }}
-                            </td>
-                            <td>
                                 {{ $solicitude->codigo_material->codigo ?? '' }}
                             </td>
                             <td>
@@ -88,23 +82,15 @@
                                 {{ $solicitude->solicitud_unidad ?? '' }}
                             </td>
                             <td>
-                                @can('solicitude_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.solicitudes.show', $solicitude->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
-
-                                @can('solicitude_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.solicitudes.edit', $solicitude->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.materials.exitMat',['codigo_material' => $solicitude->codigo_material->codigo, 'cantidad' => $solicitude->cantidad_solicitud]) }}">
+                                    ACEPTAR
+                                </a>
 
                                 @can('solicitude_delete')
                                     <form action="{{ route('admin.solicitudes.destroy', $solicitude->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                        <input type="submit" class="btn btn-xs btn-danger" value="RECHAZAR">
                                     </form>
                                 @endcan
 

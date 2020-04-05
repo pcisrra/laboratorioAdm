@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.ingresoMateriale.title_singular') }}
+        Ingreso de Material
     </div>
 
     <div class="card-body">
@@ -89,7 +89,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
-                    {{ trans('global.save') }}
+                    Registrar Ingreso
                 </button>
             </div>
         </form>

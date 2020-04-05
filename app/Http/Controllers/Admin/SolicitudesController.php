@@ -11,6 +11,7 @@ use App\Materiale;
 use App\Solicitude;
 use App\User;
 use Gate;
+use DB;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -41,6 +42,7 @@ class SolicitudesController extends Controller
     public function store(StoreSolicitudeRequest $request)
     {
         $solicitude = Solicitude::create($request->all());
+        DB::select("CALL updateFechaSalida()");
 
         return redirect()->route('admin.solicitudes.index');
     }
