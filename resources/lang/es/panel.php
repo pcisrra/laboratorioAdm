@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'sistemaunificado',
+    'site_title' => 'Laboratorio',
 ];

@@ -1,6 +1,14 @@
 <?php
 
 Route::redirect('/', '/login');
+
+//Reports
+Route::get('/export_excel','ReportsController@index');
+Route::get('/export_excel/generateMat','ReportsController@generateMat')->name('export_excel.generateMat');
+Route::get('/export_excel/generateClie','ReportsController@generateClie')->name('export_excel.generateClie');
+//Assistance
+Route::get('/print_list/createList','AssistanceController@createList')->name('print_list.createList');
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
