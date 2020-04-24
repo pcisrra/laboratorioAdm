@@ -62,10 +62,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('solicitudes/destroy', 'SolicitudesController@massDestroy')->name('solicitudes.massDestroy');
     Route::resource('solicitudes', 'SolicitudesController');
 
-    // Plan Compras
-    Route::delete('plan-compras/destroy', 'PlanCompraController@massDestroy')->name('plan-compras.massDestroy');
-    Route::resource('plan-compras', 'PlanCompraController');
-
     // Ingreso Materiales
     Route::delete('ingreso-materiales/destroy', 'IngresoMaterialesController@massDestroy')->name('ingreso-materiales.massDestroy');
     Route::resource('ingreso-materiales', 'IngresoMaterialesController');

@@ -29,9 +29,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Solicitudes
     Route::apiResource('solicitudes', 'SolicitudesApiController');
 
-    // Plan Compras
-    Route::apiResource('plan-compras', 'PlanCompraApiController');
-
     // Ingreso Materiales
     Route::apiResource('ingreso-materiales', 'IngresoMaterialesApiController');
 
